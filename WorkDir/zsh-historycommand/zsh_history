@@ -1,0 +1,3 @@
+: 1647029856:0;ls /root
+: 1647029865:0;ls -ltrhia /root
+: 1647029929:0;ansible --version

@@ -1,0 +1,34 @@
+version: "3.6"
+services:
+    master:
+        build:
+            context: ./Dockerfiles
+            dockerfile: dockerfile_ansible
+        image: ansible_server1:v1
+        container_name: Ansile_Master
+        hostname: ansible_server
+        command: /bin/zsh
+        tty: true
+        volumes:
+            - WorkDirAnsible:/root/AnsibleDir
+            - ./WorkDir/AnsibleDir/:/root/AnsibleDir:rw
+            - ./WorkDir/zsh-historycommand/zsh_history:/root/.zsh_history:rw
+    slave1:
+        image: centos:centos7
+        container_name: slave1
+        hostname: slave1
+        tty: true
+        networks:
+           - Lab
+
+    slave2:
+        image: centos:centos7
+        container_name: slave2
+        hostname: slave2
+        tty: true
+        networks:
+           - Lab
+networks:
+    Lab:
+volumes:
+    WorkDirAnsible:

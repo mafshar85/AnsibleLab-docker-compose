@@ -1,3 +1,78 @@
 : 1647029856:0;ls /root
 : 1647029865:0;ls -ltrhia /root
 : 1647029929:0;ansible --version
+: 1647030438:0;ping slave1
+: 1647030454:0;ssh slave1
+: 1647030905:0;ping slave1
+: 1647031020:0;ssh slave1
+: 1647031046:0;ssh 192.168.1.158
+: 1647031071:0;ssh ilia@192.168.1.158
+: 1647031706:0;ssh root@slave1
+: 1647032237:0;cd /root/.ssh
+: 1647032239:0;ll
+: 1647032246:0;cat known_hosts
+: 1647032262:0;vim known_hosts known_hosts known_hosts
+: 1647032277:0;ll
+: 1647032301:0;ssh-keygen -t rsa
+: 1647032319:0;ll
+: 1647032368:0;cat id_rsa.pub
+: 1647032410:0;pwd
+: 1647033028:0;cd /root/.ssh
+: 1647033031:0;ll
+: 1647033051:0;cat id_rsa.pub
+: 1647033558:0;cd /root/.ssh
+: 1647033561:0;ll
+: 1647033571:0;cat id_rsa.pub
+: 1647034262:0;cd /root/.ssh
+: 1647034264:0;ll
+: 1647036616:0;cat /tmp/ssh/id_rsa.pub
+: 1647165698:0;cd /tmp/ssh
+: 1647165699:0;ll
+: 1647165720:0;cat /root/.ssh/id_rsa.pub
+: 1647165896:0;cp /root/.ssh/id_rsa.pub /tmp/ssh
+: 1647166243:0;cat /root/.ssh/id_rsa.pub
+: 1647166644:0;ll
+: 1647166651:0;cp /root/.ssh/id_rsa.pub /tmp/ssh
+: 1647166659:0;cd /tmp/ssh
+: 1647166660:0;ll
+: 1647166687:0;cp /root/.ssh/f1 /tmp/ssh
+: 1647166706:0;cp /root/AnsibleDir/f1 /tmp/ssh
+: 1647166708:0;lll
+: 1647166709:0;ll
+: 1647167813:0;cd /tmp/ssh
+: 1647167814:0;ll
+: 1647167820:0;cd /root/.ssh
+: 1647167821:0;ll
+: 1647170531:0;cd /root/.ssh
+: 1647170532:0;ll
+: 1647170538:0;cat id_rsa.pub
+: 1647170886:0;cd /root/.ssh
+: 1647170887:0;ll
+: 1647171688:0;ping slave1
+: 1647171795:0;ssh root@slave1
+: 1647173037:0;ssh-copy-id root@slave1
+: 1647173044:0;ssh-copy-id -v root@slave1
+: 1647173051:0;ssh-copy-id -vv root@slave1
+: 1647173056:0;ssh -vv root@slave1
+: 1647173107:0;telnet
+: 1647173120:0;yum install telnet
+: 1647173226:0;telnet slave1
+: 1647173939:0;ssh -vv root@slave1
+: 1647175451:0;ssh-copy-id -vv root@slave1
+: 1647175456:0;ssh-copy-id - root@slave1
+: 1647175460:0;ssh-copy-id root@slave1
+: 1647175895:0;ssh-copy-id - root@slave1
+: 1647175900:0;ssh-copy-id  root@slave1
+: 1647175958:0;ssh -vv root@slave1
+: 1647179681:0;pwd
+: 1647179684:0;cd /root/.ssh
+: 1647179694:0;ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pub.pem
+: 1647179695:0;ll
+: 1647179712:0;ssh -vv root@slave1 -i id_rsa.pub.pem
+: 1647180148:0;ssh -vv root@slave1 
+: 1647180153:0;ssh  root@slave1 
+: 1647184567:0;ping slave1
+: 1647184740:0;ssh  root@slave1 
+: 1647184742:0;ping slave1
+: 1647184987:0;ssh  root@slave1 
+: 1647187705:0;ssh  root@slave2

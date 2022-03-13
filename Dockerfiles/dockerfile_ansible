@@ -8,6 +8,6 @@ RUN yum install -y wget && \
 WORKDIR /root/AnsibleDir/
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true 
 COPY ./zsh /root/.oh-my-zsh/custom/plugins
-RUN mv /root/.oh-my-zsh/custom/plugins/.zshrc /root/
+RUN ssh-keygen -q -t rsa -N '' -f /root/.ssh/id_rsa
 CMD ["/bin/zsh"]
 

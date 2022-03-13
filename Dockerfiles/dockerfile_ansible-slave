@@ -1,0 +1,7 @@
+FROM centos:centos7
+RUN yum install -y openssh-clients \\
+    yum install -y openssh-server \\
+    yum install -y zsh
+RUN ssh-keygen -A
+EXPOSE 22
+CMD ["/usr/sbin/sshd","-D"]

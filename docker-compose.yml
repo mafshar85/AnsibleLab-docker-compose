@@ -4,31 +4,71 @@ services:
         build:
             context: ./Dockerfiles
             dockerfile: dockerfile_ansible
-        image: ansible_server1:v1
+        image: ansible_server1:v2
         container_name: Ansile_Master
         hostname: ansible_server
-        command: /bin/zsh
         tty: true
+        entrypoint: ["/bin/sh","-c"]
+        command: 
+            - |
+               mv /root/.oh-my-zsh/custom/plugins/.zshrc /root/
+               mkdir /root/ssh  
+               cp /root/.ssh/id_rsa.pub /tmp/ssh
+               /bin/zsh
         volumes:
-            - WorkDirAnsible:/root/AnsibleDir
+            - WorkDirAnsible_data:/root/AnsibleDir
             - ./WorkDir/AnsibleDir/:/root/AnsibleDir:rw
             - ./WorkDir/zsh-historycommand/zsh_history:/root/.zsh_history:rw
+            - key_data:/root/.ssh
+        networks:
+            - Lab
+
     slave1:
-        image: centos:centos7
+        build:
+            context: ./Dockerfiles
+            dockerfile: dockerfile_ansible-slave
+        image: centos:slave-v1
         container_name: slave1
         hostname: slave1
         tty: true
+        entrypoint: ["/bin/sh","-c"]
+        command:
+            - |
+               cat /root/.ssh/id_rsa.pub >>/root/.ssh/authorized_keys
+               /usr/sbin/sshd
+               /bin/zsh
+        volumes:
+            - key_data:/root/.ssh
         networks:
-           - Lab
+            - Lab
+        cap_add:
+            - SYS_PTRACE
+        depends_on:
+            - master
 
     slave2:
-        image: centos:centos7
+        build:
+            context: ./Dockerfiles
+            dockerfile: dockerfile_ansible-slave
+        image: centos:slave-v1
         container_name: slave2
         hostname: slave2
         tty: true
+        entrypoint: ["/bin/sh","-c"]
+        command:
+            - |
+               cat /root/.ssh/id_rsa.pub >>/root/.ssh/authorized_keys
+               /usr/sbin/sshd
+               /bin/zsh
+        volumes:
+            - key_data:/root/.ssh
         networks:
-           - Lab
+            - Lab
+        depends_on:
+            - master
+
 networks:
     Lab:
 volumes:
-    WorkDirAnsible:
+    WorkDirAnsible_data:
+    key_data:

@@ -11,9 +11,9 @@ Clone this git repository:
 
 ## Build images and run containers
 
-Enter **ansible** directory containing [docker-compose.yml](./ansible/docker-compose.yml) file.
+Enter **ansible** directory containing [docker-compose.yml](./docker-compose.yml) file.
 
-Build docker images and run containers in the background (details defined in [docker-compose.yml](./ansible/docker-compose.yml)):
+Build docker images and run containers in the background (details defined in [docker-compose.yml](./docker-compose.yml)):
 
 `docker-compose up -d `
 
